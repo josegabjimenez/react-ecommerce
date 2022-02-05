@@ -8,7 +8,8 @@
 		"clean": "rm dist/bundle.js",
 		"build-dev": "webpack --mode development",
 		"build-prod": "webpack --mode production",
-		"start": "webpack serve --hot --mode development"
+		"start": "webpack serve --hot --mode development",
+		"start-normal": "webpack serve --mode development"
 	},
 	"keywords": [
 		"ecommerce",
@@ -22,6 +23,7 @@
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-hot-loader": "^4.13.0",
+		"react-router-dom": "^5.3.0",
 		"tailwindcss": "^3.0.18"
 	},
 	"devDependencies": {

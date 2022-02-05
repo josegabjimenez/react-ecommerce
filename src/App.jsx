@@ -1,15 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
+import { Login, Layout } from './containers';
 
-class App extends React.Component {
-	render() {
-		const { name } = this.props;
-		return (
-			<>
-				<h1 className="text-red-600 font-bold border">Hello {name}</h1>
-			</>
-		);
-	}
-}
+const App = () => {
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route path="/" component={Login} />
+			</Switch>
+		</BrowserRouter>
+		// <Layout>
+		// 	<Login />
+		// </Layout>
+	);
+};
 
 export default hot(App);

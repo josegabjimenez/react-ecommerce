@@ -1,5 +1,10 @@
-@tailwind base;
+/* @tailwind base;
 
 @tailwind components;
 
-@tailwind utilities;
+@tailwind utilities; */
+
+body {
+	margin: 0;
+	font-family: 'Quicksand', sans-serif;
+}
