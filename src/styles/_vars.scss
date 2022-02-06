@@ -8,3 +8,14 @@
 	--md: 16px;
 	--lg: 18px;
 }
+
+::-moz-selection {
+	/* Code for Firefox */
+	color: var(--white);
+	background: var(--hospital-green);
+}
+
+::selection {
+	color: var(--white);
+	background: var(--hospital-green);
+}

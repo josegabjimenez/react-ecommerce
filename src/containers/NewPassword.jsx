@@ -1,8 +1,8 @@
 import React from 'react';
-import '@styles/Login.scss';
+import '@styles/NewPassword.scss';
 import logo from '@assets/logos/logo_yard_sale.svg';
 
-const Login = () => {
+const NewPassword = () => {
 	return (
 		<div className="login">
 			<div className="form-container">
@@ -39,4 +39,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default NewPassword;

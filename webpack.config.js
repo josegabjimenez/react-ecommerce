@@ -9,6 +9,7 @@ const config = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].[contenthash].js',
+		publicPath: '/',
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
@@ -84,6 +85,7 @@ const config = {
 		static: {
 			directory: './dist',
 		},
+		historyApiFallback: true,
 		open: true,
 	},
 };
