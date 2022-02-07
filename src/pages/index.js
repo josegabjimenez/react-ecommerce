@@ -1,4 +1,6 @@
 import Home from './Home';
+import Order from './Order';
+import Product from './Product';
 import NotFound from './NotFound';
 
-export { NotFound, Home };
+export { Home, Order, Product, NotFound };

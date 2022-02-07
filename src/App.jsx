@@ -10,7 +10,7 @@ import {
 	Login,
 	Layout,
 } from './containers';
-import { Home, NotFound } from './pages';
+import { Home, NotFound, Order, Product } from './pages';
 import Test from './Test';
 
 const App = () => {
@@ -19,6 +19,8 @@ const App = () => {
 			<Layout>
 				<Switch>
 					<Route exact path="/" component={Home} />
+					<Route exact path="/my-order" component={Order} />
+					<Route exact path="/product" component={Product} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/my-account" component={MyAccount} />
 					<Route exact path="/my-account-info" component={MyAccountInfo} />
