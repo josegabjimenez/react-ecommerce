@@ -38,15 +38,15 @@ const Card = () => {
 	}, []);
 
 	return (
-		<div ref={cardRef} className="product-card">
+		<div ref={cardRef} className="Card-product">
 			<img
-				className="product_img"
+				className="Card-product-img"
 				src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 				alt="Product image"
 				onMouseEnter={(el) => onEnter(el.target)}
 				onMouseLeave={(el) => onLeave(el.target)}
 			/>
-			<div className="product-info">
+			<div className="Card-product-info">
 				<div>
 					<p>$120,00</p>
 					<p>Bike</p>

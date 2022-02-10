@@ -16,6 +16,7 @@ const config = {
 		alias: {
 			'@pages': path.resolve(__dirname, 'src/pages'),
 			'@components': path.resolve(__dirname, 'src/components'),
+			'@containers': path.resolve(__dirname, 'src/containers'),
 			'@styles': path.resolve(__dirname, 'src/styles'),
 			'@assets': path.resolve(__dirname, 'src/assets'),
 		},
@@ -41,23 +42,12 @@ const config = {
 				],
 			},
 			{
-				test: /\.png$/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							mimetype: 'image/png',
-						},
-					},
-				],
+				test: /\.(png|jpg|jpeg|gif|svg)$/,
+				type: 'asset',
 			},
 			{
 				test: /\.scss$/,
 				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-			},
-			{
-				test: /\.svg$/,
-				use: 'file-loader',
 			},
 		],
 	},

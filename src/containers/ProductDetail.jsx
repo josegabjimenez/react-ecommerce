@@ -1,8 +1,8 @@
 import React from 'react';
-import '@styles/Product.scss';
+import '@styles/ProductDetail.scss';
 import { addToCart, close } from '@assets/icons';
 
-const Product = () => {
+const ProductDetail = () => {
 	return (
 		<aside className="product-detail">
 			<div className="product-detail-close">
@@ -28,4 +28,4 @@ const Product = () => {
 	);
 };
 
-export default Product;
+export default ProductDetail;

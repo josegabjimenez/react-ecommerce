@@ -7,6 +7,8 @@
 	right: 0;
 	min-height: 100%;
 	background: rgba(0, 0, 0, 0);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 .product-detail-close {
 	background: var(--white);
@@ -32,7 +34,6 @@
 	margin: 24px 24px 0 24px;
 	display: flex;
 	flex-direction: column;
-	// background: #000;
 }
 .product-info-detail p:nth-child(1) {
 	font-weight: bold;
