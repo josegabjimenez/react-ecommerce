@@ -8,7 +8,9 @@ const useInitialState = () => {
 	const [state, setState] = useState(initialState);
 
 	const addToCart = (payload) => {
-		setState({ ...state, cart: [...state.cart, payload] });
+		if (!state.cart.includes(payload)) {
+			setState({ ...state, cart: [...state.cart, payload] });
+		}
 	};
 
 	const removeFromCart = (index) => {

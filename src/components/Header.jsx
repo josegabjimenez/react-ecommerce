@@ -7,7 +7,9 @@ import { menu, shoppingCart } from '@assets/icons';
 import { logoYardSale } from '@assets/logos';
 
 const Header = () => {
-	const { state } = useContext(AppContext);
+	const {
+		state: { cart },
+	} = useContext(AppContext);
 	const [toggleDesktopMenu, setToggleDesktopMenu] = useState(false);
 	const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
@@ -17,6 +19,14 @@ const Header = () => {
 
 	const handleToggleShoppingCart = (state) => {
 		setToggleShoppingCart(state);
+	};
+
+	const verifyCart = (numberOfItems) => {
+		if (numberOfItems > 0) {
+			if (numberOfItems > 9) return <div>+9</div>;
+			return <div>{numberOfItems}</div>;
+		}
+		return null;
 	};
 
 	return (
@@ -60,7 +70,7 @@ const Header = () => {
 							alt="shopping cart"
 							onClick={() => handleToggleShoppingCart(true)}
 						/>
-						<div>{state.cart.length}</div>
+						{verifyCart(cart.length)}
 					</li>
 				</ul>
 			</div>

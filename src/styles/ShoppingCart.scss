@@ -1,6 +1,9 @@
 @import 'vars';
 
 .ShoppingCart-product-detail {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	display: none;
 	width: 360px;
 	height: 100vh;
@@ -13,6 +16,7 @@
 	background: var(--white);
 	overflow-y: scroll;
 	@include shadow;
+	border-left: 2px solid var(--hospital-green);
 }
 .ShoppingCart-title-container {
 	display: flex;

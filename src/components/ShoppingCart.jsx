@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import AppContext from '@context/AppContext';
+import { ShoppingCartItem } from '@components/index/';
 //Styling
 import { gsap } from 'gsap';
 import '@styles/ShoppingCart.scss';
 import { BsArrowLeftCircleFill } from 'react-icons/bs';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const ShoppingCart = ({ isOpen, onClick }) => {
-	const { state, removeFromCart } = useContext(AppContext);
+	const {
+		state: { cart },
+		removeFromCart,
+	} = useContext(AppContext);
 
 	// It trigger an animation either when is open or closed
 	useEffect(() => {
@@ -41,18 +44,13 @@ const ShoppingCart = ({ isOpen, onClick }) => {
 				<p className="ShoppingCart-title">Shopping Cart</p>
 			</div>
 			<div className="ShoppingCart-content">
-				{state.cart.map((item, index) => (
-					<div className="ShoppingCart-shopping-cart">
-						<figure>
-							<img src={item.images[0]} alt="bike" />
-						</figure>
-						<p>{item.title}</p>
-						<p>${item.price}</p>
-						<AiOutlineCloseCircle
-							alt="close"
-							onClick={() => removeFromCart(index)}
-						/>
-					</div>
+				{cart.map((item, index) => (
+					<ShoppingCartItem
+						key={`orderItem-${item.id}`}
+						item={item}
+						index={index}
+						removeFromCart={removeFromCart}
+					/>
 				))}
 				<div className="ShoppingCart-order">
 					<p>
