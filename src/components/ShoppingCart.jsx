@@ -1,52 +1,64 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import AppContext from '@context/AppContext';
+//Styling
+import { gsap } from 'gsap';
 import '@styles/ShoppingCart.scss';
+import { BsArrowLeftCircleFill } from 'react-icons/bs';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ isOpen, onClick }) => {
+	const { state, removeFromCart } = useContext(AppContext);
+
+	// It trigger an animation either when is open or closed
+	useEffect(() => {
+		if (isOpen) {
+			gsap.to('.ShoppingCart-product-detail', {
+				duration: 0,
+				css: { display: 'block' },
+			});
+			gsap.to('.ShoppingCart-product-detail', {
+				duration: 0.6,
+				xPercent: -100,
+				ease: 'power3.inOut',
+			});
+		} else {
+			gsap.to('.ShoppingCart-product-detail', {
+				duration: 0.6,
+				xPercent: 0,
+				ease: 'power3.inOut',
+			});
+			gsap.to('.ShoppingCart-product-detail', {
+				duration: 0.8,
+				css: { display: 'none' },
+			});
+		}
+	}, [isOpen]);
+
 	return (
 		<aside className="ShoppingCart-product-detail">
-			<div className="ShoppingCart-title-container">
-				<img src="./icons/flechita.svg" alt="arrow" />
+			<div className="ShoppingCart-title-container ">
+				<BsArrowLeftCircleFill alt="arrow" onClick={onClick} />
 				<p className="ShoppingCart-title">Shopping Cart</p>
 			</div>
 			<div className="ShoppingCart-content">
-				<div className="ShoppingCart-shopping-cart">
-					<figure>
-						<img
-							src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-							alt="bike"
+				{state.cart.map((item, index) => (
+					<div className="ShoppingCart-shopping-cart">
+						<figure>
+							<img src={item.images[0]} alt="bike" />
+						</figure>
+						<p>{item.title}</p>
+						<p>${item.price}</p>
+						<AiOutlineCloseCircle
+							alt="close"
+							onClick={() => removeFromCart(index)}
 						/>
-					</figure>
-					<p>Bike</p>
-					<p>$30,00</p>
-					<img src="./icons/icon_close.png" alt="close" />
-				</div>
-				<div className="ShoppingCart-shopping-cart">
-					<figure>
-						<img
-							src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-							alt="bike"
-						/>
-					</figure>
-					<p>Bike</p>
-					<p>$30,00</p>
-					<img src="./icons/icon_close.png" alt="close" />
-				</div>
-				<div className="ShoppingCart-shopping-cart">
-					<figure>
-						<img
-							src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-							alt="bike"
-						/>
-					</figure>
-					<p>Bike</p>
-					<p>$30,00</p>
-					<img src="./icons/icon_close.png" alt="close" />
-				</div>
+					</div>
+				))}
 				<div className="ShoppingCart-order">
 					<p>
 						<span>Total</span>
 					</p>
-					<p>$560.00</p>
+					<p>$550</p>
 				</div>
 				<button className="ShoppingCart-primary-button">Checkout</button>
 			</div>

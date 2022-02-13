@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const initialState = {
-	cart: ['Test'],
+	cart: [],
 };
 
 const useInitialState = () => {
@@ -11,7 +11,13 @@ const useInitialState = () => {
 		setState({ ...state, cart: [...state.cart, payload] });
 	};
 
-	return { state, addToCart };
+	const removeFromCart = (index) => {
+		const newCart = state.cart;
+		newCart.splice(index, 1);
+		setState({ ...state, cart: newCart });
+	};
+
+	return { state, addToCart, removeFromCart };
 };
 
 export default useInitialState;

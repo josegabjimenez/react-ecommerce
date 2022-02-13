@@ -19,3 +19,19 @@
 	color: var(--white);
 	background: var(--hospital-green);
 }
+
+@mixin shadow {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+// Default designs
+
+.icon-hover {
+	transition: all 0.2s;
+
+	&:hover {
+		transform: scale(1.5);
+		background: red;
+	}
+}

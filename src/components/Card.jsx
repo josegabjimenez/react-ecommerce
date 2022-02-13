@@ -44,12 +44,7 @@ const Card = ({ product }) => {
 			scale: 0.95,
 			ease: 'back',
 		});
-		console.log(state);
 	}, []);
-
-	useEffect(() => {
-		console.log(state);
-	}, [state]);
 
 	return (
 		<div ref={cardRef} className="Card-product">

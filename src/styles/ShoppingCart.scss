@@ -1,18 +1,33 @@
 @import 'vars';
 
 .ShoppingCart-product-detail {
+	display: none;
 	width: 360px;
+	height: 100vh;
 	padding: 24px;
 	box-sizing: border-box;
-	position: absolute;
-	right: 0;
+	position: fixed;
+	top: 0;
+	right: -360px;
+	z-index: 100;
+	background: var(--white);
+	overflow-y: scroll;
+	@include shadow;
 }
 .ShoppingCart-title-container {
 	display: flex;
+	align-items: center;
 }
-.ShoppingCart-title-container img {
-	transform: rotate(180deg);
+.ShoppingCart-title-container svg {
 	margin-right: 14px;
+	font-size: 1.5rem;
+	color: var(--very-light-pink);
+	cursor: pointer;
+	transition: color 0.2s;
+
+	&:hover {
+		color: var(--hospital-green);
+	}
 }
 .ShoppingCart-title {
 	font-size: var(--lg);
@@ -46,6 +61,15 @@
 	gap: 16px;
 	margin-bottom: 24px;
 	align-items: center;
+
+	svg {
+		color: var(--very-light-pink);
+		cursor: pointer;
+		transition: color 0.2s;
+		&:hover {
+			color: var(--hospital-green);
+		}
+	}
 }
 .ShoppingCart-shopping-cart figure {
 	margin: 0;

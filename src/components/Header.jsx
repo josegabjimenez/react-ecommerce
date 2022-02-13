@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { DesktopMenu } from '@components/index';
+import React, { useState, useContext } from 'react';
+import AppContext from '@context/AppContext';
+import { DesktopMenu, ShoppingCart } from '@components/index';
 // Styles and icons
 import '@styles/Header.scss';
 import { menu, shoppingCart } from '@assets/icons';
 import { logoYardSale } from '@assets/logos';
 
 const Header = () => {
+	const { state } = useContext(AppContext);
 	const [toggleDesktopMenu, setToggleDesktopMenu] = useState(false);
+	const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
 	const handleToggleDesktopMenu = (state) => {
 		setToggleDesktopMenu(state);
+	};
+
+	const handleToggleShoppingCart = (state) => {
+		setToggleShoppingCart(state);
 	};
 
 	return (
@@ -48,8 +55,12 @@ const Header = () => {
 						platzi@example.com
 					</li>
 					<li className="navbar-shopping-cart">
-						<img src={shoppingCart} alt="shopping cart" />
-						<div>2</div>
+						<img
+							src={shoppingCart}
+							alt="shopping cart"
+							onClick={() => handleToggleShoppingCart(true)}
+						/>
+						<div>{state.cart.length}</div>
 					</li>
 				</ul>
 			</div>
@@ -59,6 +70,10 @@ const Header = () => {
 					onMouseLeave={handleToggleDesktopMenu}
 				/>
 			)}
+			<ShoppingCart
+				isOpen={toggleShoppingCart}
+				onClick={() => handleToggleShoppingCart(false)}
+			/>
 		</nav>
 	);
 };
