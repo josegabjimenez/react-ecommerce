@@ -1,24 +1,19 @@
 import React from 'react';
-import { Header, Card, DesktopMenu, MobileMenu } from '@components';
-import { Product } from '@pages';
+import { Header, Footer } from '@components/index';
+import { ProductList } from '@containers/index';
+import '@styles/Pages.scss';
 
 const Home = () => {
 	return (
-		<div>
-			<Header />
-			{/* <MobileMenu /> */}
-			<h1>E-commerce shop home</h1>
-			<div className="cards-container">
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+		<section className="Home">
+			<div className="Home-content">
+				<Header />
+				{/* <MobileMenu /> */}
+				<h1>E-commerce shop home</h1>
+				<ProductList />
 			</div>
-		</div>
+			<Footer />
+		</section>
 	);
 };
 

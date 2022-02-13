@@ -1,6 +1,6 @@
 import React from 'react';
 import '@styles/ProductDetail.scss';
-import { addToCart, close } from '@assets/icons';
+import { addToCartImage, close } from '@assets/icons';
 
 const ProductDetail = () => {
 	return (
@@ -20,7 +20,7 @@ const ProductDetail = () => {
 					function, add your hall or workspace.
 				</p>
 				<button className="primary-button add-to-cart-button">
-					<img src={addToCart} alt="add to cart" />
+					<img src={addToCartImage} alt="add to cart" />
 					Add to cart
 				</button>
 			</div>

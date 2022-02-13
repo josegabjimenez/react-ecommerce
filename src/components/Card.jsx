@@ -1,9 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
+import AppContext from '@context/AppContext';
 import { gsap } from 'gsap';
 import '@styles/Card.scss';
-import { addToCart } from '@assets/icons';
+import { addToCartImage } from '@assets/icons';
 
-const Card = () => {
+const Card = ({ product }) => {
+	const { title, price, images } = product;
+	const { state, addToCart } = useContext(AppContext);
+
+	const handleClick = (item) => {
+		addToCart(item);
+	};
+
+	// Animations
 	const cardRef = useRef();
 
 	const onEnter = (element) => {
@@ -35,28 +44,34 @@ const Card = () => {
 			scale: 0.95,
 			ease: 'back',
 		});
+		console.log(state);
 	}, []);
+
+	useEffect(() => {
+		console.log(state);
+	}, [state]);
 
 	return (
 		<div ref={cardRef} className="Card-product">
 			<img
 				className="Card-product-img"
-				src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+				src={images[0]}
 				alt="Product image"
 				onMouseEnter={(el) => onEnter(el.target)}
 				onMouseLeave={(el) => onLeave(el.target)}
 			/>
 			<div className="Card-product-info">
 				<div>
-					<p>$120,00</p>
-					<p>Bike</p>
+					<p>${price}</p>
+					<p>{title}</p>
 				</div>
 				<figure>
 					<img
-						src={addToCart}
+						src={addToCartImage}
 						alt="Add product to cart button"
 						onMouseEnter={(el) => onEnter(el.target)}
 						onMouseLeave={(el) => onLeave(el.target)}
+						onClick={() => handleClick(product)}
 					/>
 				</figure>
 			</div>

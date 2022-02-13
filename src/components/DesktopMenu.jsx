@@ -1,20 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '@styles/DesktopMenu.scss';
 
-const DesktopMenu = () => {
+const DesktopMenu = ({ onMouseEnter, onMouseLeave }) => {
 	return (
-		<div className="desktop-menu">
+		<div
+			className="desktop-menu"
+			onMouseEnter={() => onMouseEnter(true)}
+			onMouseLeave={() => onMouseLeave(false)}
+		>
 			<ul>
 				<li>
-					<a href="/" className="title">
+					<Link to="/my-orders" className="title">
 						My orders
-					</a>
+					</Link>
 				</li>
 				<li>
-					<a href="/">My account</a>
+					<Link to="/my-account">My account</Link>
 				</li>
 				<li>
-					<a href="/">Sign out</a>
+					<Link to="/">Sign out</Link>
 				</li>
 			</ul>
 		</div>

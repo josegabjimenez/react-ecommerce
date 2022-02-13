@@ -6,6 +6,19 @@
 	border: 1px solid var(--very-light-pink);
 	border-radius: 6px;
 	padding: 20px 20px 0 20px;
+	position: absolute;
+	right: 55px;
+	top: 59px;
+	z-index: 20;
+	background: var(--white);
+
+	ul li a {
+		transition: color 0.09s;
+	}
+
+	ul li a:hover {
+		color: var(--hospital-green);
+	}
 }
 .desktop-menu ul {
 	list-style: none;
@@ -26,9 +39,10 @@
 .desktop-menu ul li:last-child a {
 	color: var(--hospital-green);
 	font-size: var(--sm);
+	font-weight: bold;
 }
 .desktop-menu ul li a {
-	color: var(--back);
+	color: var(--very-light-pink);
 	text-decoration: none;
 	margin-bottom: 20px;
 	display: inline-block;
