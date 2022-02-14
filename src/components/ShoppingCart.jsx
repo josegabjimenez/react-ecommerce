@@ -8,9 +8,9 @@ import { BsArrowLeftCircleFill } from 'react-icons/bs';
 
 const ShoppingCart = ({ isOpen, onClick }) => {
 	const {
-		state: { cart },
+		state: { cart, totalPrice },
 		removeFromCart,
-	} = useContext(AppContext);
+	} = useContext(AppContext); // Here I get the global state through the App Context
 
 	// It trigger an animation either when is open or closed
 	useEffect(() => {
@@ -56,7 +56,7 @@ const ShoppingCart = ({ isOpen, onClick }) => {
 					<p>
 						<span>Total</span>
 					</p>
-					<p>$550</p>
+					<p>${totalPrice}</p>
 				</div>
 				<button className="ShoppingCart-primary-button">Checkout</button>
 			</div>

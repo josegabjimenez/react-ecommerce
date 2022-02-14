@@ -21,6 +21,7 @@ const Header = () => {
 		setToggleShoppingCart(state);
 	};
 
+	// Verify if the cart has items or not items and depend of it, it will display a number or not
 	const verifyCart = (numberOfItems) => {
 		if (numberOfItems > 0) {
 			if (numberOfItems > 9) return <div>+9</div>;
