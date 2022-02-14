@@ -8,34 +8,26 @@ const initialState = {
 const useInitialState = () => {
 	const [state, setState] = useState(initialState);
 
-	// It calculates the total price of the products in the cart using a reduce method
-	const calculeTotalPrice = () => {
-		const reducer = (accumulator, currentValue) => {
-			return accumulator + currentValue.price;
-		};
-		const sum = state.cart.reduce(reducer, 0);
-		return sum;
-	};
-
-	// Add a product to the cart
+	// Add a product to the cart and update its total price
 	const addToCart = (payload) => {
 		if (!state.cart.includes(payload)) {
-			setState({ ...state, cart: [...state.cart, payload] });
+			setState({
+				...state,
+				cart: [...state.cart, payload],
+				totalPrice: state.totalPrice + payload.price,
+			});
 		}
 	};
 
-	// Remove a product from the cart
-	const removeFromCart = (index) => {
-		const newCart = state.cart;
-		newCart.splice(index, 1);
-		setState({ ...state, cart: [...newCart] });
+	// Remove a product from the cart and update its total price
+	const removeFromCart = (payload) => {
+		const newCart = state.cart.filter((product) => product.id != payload.id);
+		setState({
+			...state,
+			cart: [...newCart],
+			totalPrice: state.totalPrice - payload.price,
+		});
 	};
-
-	// It changes the total price each time the cart changes
-	useEffect(() => {
-		const totalPrice = calculeTotalPrice();
-		setState({ ...state, totalPrice });
-	}, [state.cart]);
 
 	return { state, addToCart, removeFromCart };
 };

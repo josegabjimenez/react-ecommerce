@@ -44,11 +44,10 @@ const ShoppingCart = ({ isOpen, onClick }) => {
 				<p className="ShoppingCart-title">Shopping Cart</p>
 			</div>
 			<div className="ShoppingCart-content">
-				{cart.map((item, index) => (
+				{cart.map((item) => (
 					<ShoppingCartItem
 						key={`orderItem-${item.id}`}
 						item={item}
-						index={index}
 						removeFromCart={removeFromCart}
 					/>
 				))}

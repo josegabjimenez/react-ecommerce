@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-const ShoppingCartItem = ({ item, index, removeFromCart }) => {
+const ShoppingCartItem = ({ item, removeFromCart }) => {
 	const { title, price, images } = item;
 	return (
 		<div className="ShoppingCart-shopping-cart">
@@ -10,7 +10,7 @@ const ShoppingCartItem = ({ item, index, removeFromCart }) => {
 			</figure>
 			<p>{title}</p>
 			<p>${price}</p>
-			<AiOutlineCloseCircle alt="close" onClick={() => removeFromCart(index)} />
+			<AiOutlineCloseCircle alt="close" onClick={() => removeFromCart(item)} />
 		</div>
 	);
 };
