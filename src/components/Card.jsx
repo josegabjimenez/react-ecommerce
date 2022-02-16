@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useContext } from 'react';
 import AppContext from '@context/AppContext';
 import { gsap } from 'gsap';
 import '@styles/Card.scss';
-import { addToCartImage } from '@assets/icons';
+import { addToCartImage, addedToCartImage } from '@assets/icons';
 
 const Card = ({ product }) => {
 	const { title, price, images } = product;
-	const { state, addToCart } = useContext(AppContext);
+	const {
+		state: { cart },
+		addToCart,
+	} = useContext(AppContext);
 
 	const handleClick = (item) => {
 		addToCart(item);
@@ -62,7 +65,7 @@ const Card = ({ product }) => {
 				</div>
 				<figure>
 					<img
-						src={addToCartImage}
+						src={cart.includes(product) ? addedToCartImage : addToCartImage}
 						alt="Add product to cart button"
 						onMouseEnter={(el) => onEnter(el.target)}
 						onMouseLeave={(el) => onLeave(el.target)}
