@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { Header } from '@components';
 import '@styles/Login.scss';
 
 const Login = () => {
@@ -17,7 +16,6 @@ const Login = () => {
 
 	return (
 		<div className="Login">
-			<Header />
 			<div className="Login-content">
 				<div className="Login-form-container">
 					<img

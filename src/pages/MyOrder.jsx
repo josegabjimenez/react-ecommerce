@@ -1,11 +1,9 @@
 import React from 'react';
-import { Header } from '@components';
 import '@styles/MyOrder.scss';
 
 const MyOrder = () => {
 	return (
 		<div className="MyOrder">
-			<Header />
 			<div className="MyOrder-content">
 				<div className="MyOrder-container">
 					<h1 className="MyOrder-title">My order</h1>

@@ -1,8 +1,15 @@
 import React from 'react';
-import { Header } from '@components';
+import { Footer, Header } from '@components/index';
+import '@styles/Layout.scss';
 
 const Layout = ({ children }) => {
-	return <div className="layout">{children}</div>;
+	return (
+		<div className="Layout">
+			<Header />
+			{children}
+			<Footer />
+		</div>
+	);
 };
 
 export default Layout;

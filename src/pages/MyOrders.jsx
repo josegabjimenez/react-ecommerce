@@ -1,12 +1,10 @@
 import React from 'react';
-import { Header } from '@components';
 import '@styles/MyOrders.scss';
 import { arrow } from '@assets/icons';
 
 const MyOrders = () => {
 	return (
 		<div className="MyOrders">
-			<Header />
 			<div className="MyOrders-content">
 				<div className="MyOrders-container">
 					<h1 className="MyOrders-title">My orders</h1>

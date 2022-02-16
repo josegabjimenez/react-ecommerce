@@ -1,11 +1,9 @@
 import React from 'react';
-import { Header } from '@components';
 import '@styles/SignUp.scss';
 
 const SignUp = () => {
 	return (
 		<div className="SignUp">
-			<Header />
 			<div className="SignUp-content">
 				<div className="SignUp-form-container">
 					<h1 className="SignUp-title">Create account</h1>
