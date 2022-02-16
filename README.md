@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1556c754-bf3a-4378-9b81-ad1cadc8ce30/deploy-status)](https://app.netlify.com/sites/pulguero/deploys)
 # react-ecommerce
 
 The front-end from an online shop project using react library, webpack as a bundler and tailwindcss for the styling.
