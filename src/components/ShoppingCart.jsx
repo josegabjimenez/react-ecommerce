@@ -32,7 +32,7 @@ const ShoppingCart = ({ isOpen, onClick }) => {
 			});
 			gsap.to('.ShoppingCart-product-detail', {
 				duration: 0.8,
-				css: { display: 'none' },
+				// css: { display: 'none' },
 			});
 		}
 	}, [isOpen]);
