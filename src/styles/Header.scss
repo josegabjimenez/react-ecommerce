@@ -4,19 +4,20 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 24px;
+	// padding: 0 24px;
 	border-bottom: 1px solid var(--very-light-pink);
 	background: var(--white);
-	// width: 100%;
+	width: 100%;
 	top: 0;
 	z-index: 10;
-	// position: fixed;
+	position: fixed;
 }
 .menu {
 	display: none;
 }
 .logoHeader {
 	width: 100px;
+	margin-left: 20px;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -71,6 +72,7 @@ nav {
 .navbar-shopping-cart {
 	position: relative;
 	cursor: pointer;
+	margin-right: 20px;
 }
 .navbar-shopping-cart div {
 	width: 16px;
@@ -90,7 +92,7 @@ nav {
 }
 @media (max-width: 640px) {
 	.menu {
-		display: block;
+		// display: block;
 	}
 	.navbar-left ul {
 		display: none;
