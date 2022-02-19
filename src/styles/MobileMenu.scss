@@ -2,22 +2,38 @@
 
 .mobile-menu {
 	position: absolute;
-	background: white;
-	padding: 24px;
+	background: var(--hospital-green);
+	color: var(--white);
 	z-index: 20;
 	width: 100%;
 	height: 100vh;
 	top: 0;
+	left: -100%;
+
+	.mobile-menu-close-button {
+		transition: color 0.2s;
+		svg {
+			position: absolute;
+			right: 40px;
+			top: 40px;
+			font-size: 1.5rem;
+
+			&:hover {
+				color: var(--hospital-green);
+			}
+		}
+	}
 }
 .mobile-menu a {
 	text-decoration: none;
-	color: var(--black);
+	color: var(--white);
 	font-weight: bold;
 	/* margin-bottom: 24px; */
 }
 .mobile-menu ul {
 	padding: 0;
-	margin: 24px 0 0;
+	margin-top: 40px;
+	margin-left: 40px;
 	list-style: none;
 }
 .mobile-menu ul:nth-child(1) {
@@ -32,5 +48,5 @@
 }
 .sign-out {
 	font-size: var(--sm);
-	color: var(--hospital-green) !important;
+	color: var(--warning) !important;
 }

@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 import '@styles/MobileMenu.scss';
 import { BsXCircle } from 'react-icons/bs';
 
-const MobileMenu = () => {
+const MobileMenu = ({ isOpen, onClick }) => {
+	useEffect(() => {
+		if (isOpen) {
+			gsap.to('.mobile-menu', {
+				duration: 0.6,
+				xPercent: 100,
+				ease: 'power3.inOut',
+			});
+		} else {
+			gsap.to('.mobile-menu', {
+				duration: 0.6,
+				xPercent: 0,
+				ease: 'power3.inOut',
+			});
+		}
+	}, [isOpen]);
+
 	return (
 		<div className="mobile-menu">
+			<div className="mobile-menu-close-button" onClick={onClick}>
+				<BsXCircle />
+			</div>
 			<ul>
 				<li>
 					<a href="/">CATEGORIES</a>

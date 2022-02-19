@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AppContext from '@context/AppContext';
 import { ShoppingCartItem } from '@components/index/';
 //Styling
@@ -27,11 +27,11 @@ const ShoppingCart = ({ isOpen, onClick }) => {
 		} else {
 			gsap.to('.ShoppingCart-product-detail', {
 				duration: 0.6,
-				xPercent: 0,
+				xPercent: 20,
 				ease: 'power3.inOut',
 			});
 			gsap.to('.ShoppingCart-product-detail', {
-				duration: 0.8,
+				duration: 0.6,
 				// css: { display: 'none' },
 			});
 		}

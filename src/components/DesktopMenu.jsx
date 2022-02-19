@@ -19,7 +19,7 @@ const DesktopMenu = ({ onMouseEnter, onMouseLeave }) => {
 					<Link to="/my-account">My account</Link>
 				</li>
 				<li>
-					<Link to="/">Sign out</Link>
+					<Link to="/sign-up">Sign out</Link>
 				</li>
 			</ul>
 		</div>

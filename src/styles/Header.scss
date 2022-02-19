@@ -23,8 +23,13 @@ nav {
 	}
 }
 .logoHeader {
-	width: 100px;
-	margin-left: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img {
+		width: 100px;
+		margin-left: 20px;
+	}
 }
 .navbar-left ul,
 .navbar-right ul {

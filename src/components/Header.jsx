@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import AppContext from '@context/AppContext';
 import { DesktopMenu, MobileMenu, ShoppingCart } from '@components/index';
 // Styles and icons
@@ -37,7 +38,11 @@ const Header = () => {
 
 	return (
 		<nav>
-			{toggleMobileMenu && <MobileMenu />}
+			<MobileMenu
+				isOpen={toggleMobileMenu}
+				onClick={() => handleToggleMobileMenu(false)}
+			/>
+
 			<img
 				src={menu}
 				alt="mobile menu"
@@ -45,7 +50,9 @@ const Header = () => {
 				onClick={() => handleToggleMobileMenu(true)}
 			/>
 			<div className="navbar-left">
-				<img src={logoYardSale} alt="logo" className="logoHeader" />
+				<Link to="/" className="logoHeader">
+					<img src={logoYardSale} alt="logo" />
+				</Link>
 				<ul>
 					<li>
 						<a href="/">All</a>
