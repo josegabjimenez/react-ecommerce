@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 const initialState = {
 	cart: [],
 	totalPrice: 0,
+	currentProduct: {
+		isOpen: false,
+		product: {},
+	},
 };
 
 const useInitialState = () => {
@@ -29,7 +33,18 @@ const useInitialState = () => {
 		});
 	};
 
-	return { state, addToCart, removeFromCart };
+	const openProduct = (product) => {
+		setState({ ...state, currentProduct: { isOpen: true, product } });
+	};
+
+	const closeProduct = () => {
+		setState({
+			...state,
+			currentProduct: { ...state.currentProduct, isOpen: false },
+		});
+	};
+
+	return { state, addToCart, removeFromCart, openProduct, closeProduct };
 };
 
 export default useInitialState;

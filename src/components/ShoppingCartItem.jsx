@@ -1,4 +1,5 @@
 import React from 'react';
+import { Close } from '@assets/icons/index';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const ShoppingCartItem = ({ item, removeFromCart }) => {
@@ -10,7 +11,7 @@ const ShoppingCartItem = ({ item, removeFromCart }) => {
 			</figure>
 			<p>{title}</p>
 			<p>${price}</p>
-			<AiOutlineCloseCircle alt="close" onClick={() => removeFromCart(item)} />
+			<Close alt="close" onClick={() => removeFromCart(item)} />
 		</div>
 	);
 };

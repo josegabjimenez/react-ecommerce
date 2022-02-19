@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import '@styles/MobileMenu.scss';
-import { BsXCircle } from 'react-icons/bs';
+import { Close } from '@assets/icons/index';
 
 const MobileMenu = ({ isOpen, onClick }) => {
 	useEffect(() => {
@@ -23,7 +23,7 @@ const MobileMenu = ({ isOpen, onClick }) => {
 	return (
 		<div className="mobile-menu">
 			<div className="mobile-menu-close-button" onClick={onClick}>
-				<BsXCircle />
+				<Close />
 			</div>
 			<ul>
 				<li>

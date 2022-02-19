@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '@context/AppContext';
 import { DesktopMenu, MobileMenu, ShoppingCart } from '@components/index';
+import { ProductDetail } from '@containers/index';
 // Styles and icons
 import '@styles/Header.scss';
 import { menu, shoppingCart } from '@assets/icons';
@@ -42,6 +43,8 @@ const Header = () => {
 				isOpen={toggleMobileMenu}
 				onClick={() => handleToggleMobileMenu(false)}
 			/>
+
+			<ProductDetail />
 
 			<img
 				src={menu}

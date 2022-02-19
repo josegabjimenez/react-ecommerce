@@ -7,12 +7,13 @@ import { addToCartImage, addedToCartImage } from '@assets/icons';
 const Card = ({ product }) => {
 	const { title, price, images } = product;
 	const {
-		state: { cart },
+		state: { cart, currentProduct },
 		addToCart,
+		openProduct,
 	} = useContext(AppContext);
 
-	const handleClick = (item) => {
-		addToCart(item);
+	const handleClick = () => {
+		addToCart(product);
 	};
 
 	// Animations
@@ -57,6 +58,7 @@ const Card = ({ product }) => {
 				alt="Product image"
 				onMouseEnter={(el) => onEnter(el.target)}
 				onMouseLeave={(el) => onLeave(el.target)}
+				onClick={() => openProduct(product)}
 			/>
 			<div className="Card-product-info">
 				<div>
@@ -69,7 +71,7 @@ const Card = ({ product }) => {
 						alt="Add product to cart button"
 						onMouseEnter={(el) => onEnter(el.target)}
 						onMouseLeave={(el) => onLeave(el.target)}
-						onClick={() => handleClick(product)}
+						onClick={() => handleClick()}
 					/>
 				</figure>
 			</div>
