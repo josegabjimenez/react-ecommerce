@@ -1,5 +1,6 @@
 import React from 'react';
 import '@styles/MobileMenu.scss';
+import { BsXCircle } from 'react-icons/bs';
 
 const MobileMenu = () => {
 	return (

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import AppContext from '@context/AppContext';
-import { DesktopMenu, ShoppingCart } from '@components/index';
+import { DesktopMenu, MobileMenu, ShoppingCart } from '@components/index';
 // Styles and icons
 import '@styles/Header.scss';
 import { menu, shoppingCart } from '@assets/icons';
@@ -11,10 +11,15 @@ const Header = () => {
 		state: { cart },
 	} = useContext(AppContext);
 	const [toggleDesktopMenu, setToggleDesktopMenu] = useState(false);
+	const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 	const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
 	const handleToggleDesktopMenu = (state) => {
 		setToggleDesktopMenu(state);
+	};
+
+	const handleToggleMobileMenu = (state) => {
+		setToggleMobileMenu(state);
 	};
 
 	const handleToggleShoppingCart = (state) => {
@@ -32,7 +37,13 @@ const Header = () => {
 
 	return (
 		<nav>
-			<img src={menu} alt="menu" className="menu" />
+			{toggleMobileMenu && <MobileMenu />}
+			<img
+				src={menu}
+				alt="mobile menu"
+				className="menu"
+				onClick={() => handleToggleMobileMenu(true)}
+			/>
 			<div className="navbar-left">
 				<img src={logoYardSale} alt="logo" className="logoHeader" />
 				<ul>
