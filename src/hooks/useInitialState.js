@@ -14,7 +14,9 @@ const useInitialState = () => {
 
 	// Add a product to the cart and update its total price
 	const addToCart = (payload) => {
-		if (!state.cart.includes(payload)) {
+		if (state.cart.includes(payload)) {
+			removeFromCart(payload);
+		} else {
 			setState({
 				...state,
 				cart: [...state.cart, payload],

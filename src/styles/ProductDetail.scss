@@ -72,6 +72,15 @@
 	font-size: var(--md);
 	font-weight: bold;
 	height: 50px;
+
+	&.added-cart-button {
+		color: var(--hospital-green);
+		background-color: var(--white);
+		border: 2px solid var(--hospital-green);
+		img {
+			height: 46px;
+		}
+	}
 }
 .ProductDetail-add-to-cart-button {
 	display: flex;

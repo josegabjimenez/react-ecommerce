@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AppContext from '@context/AppContext';
 import { gsap } from 'gsap';
 //Styles
 import '@styles/ProductDetail.scss';
-import { addToCartImage, Close } from '@assets/icons';
+import { addToCartImage, addedToCartImage, Close } from '@assets/icons';
 
 const ProductDetail = () => {
 	const item = {
@@ -15,12 +15,15 @@ const ProductDetail = () => {
 			'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 		],
 	};
+	const [isOnCart, setIsOnCart] = useState(false); // To know if the current product is on the cart or not
 
 	const {
 		state: {
+			cart,
 			currentProduct: { isOpen, product },
 		},
 		closeProduct,
+		addToCart,
 	} = useContext(AppContext);
 
 	// It trigger an animation either when is open or closed
@@ -40,7 +43,13 @@ const ProductDetail = () => {
 		}
 	}, [isOpen]);
 
-	console.log(product);
+	useEffect(() => {
+		if (cart.includes(product)) {
+			setIsOnCart(true);
+		} else {
+			setIsOnCart(false);
+		}
+	}, [product, cart]);
 
 	if (Object.keys(product).length != 0) {
 		item.title = product.title;
@@ -63,9 +72,17 @@ const ProductDetail = () => {
 				<p>${item.price}</p>
 				<p>{item.title}</p>
 				<p>{item.description} </p>
-				<button className="ProductDetail-primary-button ProductDetail-add-to-cart-button">
-					<img src={addToCartImage} alt="add to cart" />
-					Add to cart
+				<button
+					className={`ProductDetail-primary-button ProductDetail-add-to-cart-button ${
+						isOnCart && 'added-cart-button'
+					}`}
+					onClick={() => addToCart(product)}
+				>
+					<img
+						src={isOnCart ? addedToCartImage : addToCartImage}
+						alt="add to cart"
+					/>
+					Add{isOnCart && 'ed'} to cart
 				</button>
 			</div>
 		</aside>
