@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const initialState = {
 	cart: [],
@@ -35,10 +35,12 @@ const useInitialState = () => {
 		});
 	};
 
+	// It's used to know if the user wants to see the details of a product. To open the product detail container.
 	const openProduct = (product) => {
 		setState({ ...state, currentProduct: { isOpen: true, product } });
 	};
 
+	// It's used to know if the user wants to close the details of a product. To close the product detail container.
 	const closeProduct = () => {
 		setState({
 			...state,
